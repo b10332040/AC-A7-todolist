@@ -23,6 +23,9 @@ const TodoCollection = ({
             onSave={({ id, title }) => {
               onSave?.({ id, title });
             }}
+            onDelete={(id) => {
+              onDelete?.(id);
+            }}
           />
         );
       })}
