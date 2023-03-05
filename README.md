@@ -3,8 +3,13 @@
 - 專案：https://github.com/b10332040/AC-A7-todolist
 - 起始專案：https://github.com/ALPHACamp/todolist-react-starter.git
 
-### 從起始專案練習
+### User Story
 
+- 使用者可以在網域輸入路徑進入對應頁面：
+  - /login：進入登入頁面。
+  - /signup：進入註冊頁面。
+  - /todo：進入 Todo List 頁面。
+  - 其餘：進入首頁。
 - 使用者可以查看自己的所有 todo。
 - 使用者可以新增 todo。
 - 使用者可以刪除 todo。
