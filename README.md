@@ -1,7 +1,7 @@
 # Todo List X MVC with React
 
-專案：https://github.com/b10332040/AC-A7-todolist
-起始專案：https://github.com/ALPHACamp/todolist-react-starter.git
+- 專案：https://github.com/b10332040/AC-A7-todolist
+- 起始專案：https://github.com/ALPHACamp/todolist-react-starter.git
 
 ### 從起始專案練習
 
