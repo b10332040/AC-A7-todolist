@@ -104,6 +104,7 @@ const StyledTaskItem = styled.div`
 
 const TodoItem = ({ todo, onToggleDone, onSave, onDelete, onChangeMode }) => {
   const inputRef = useRef(null);
+
   const handleKeyDown = (event) => {
     if (inputRef.current.value.length > 0 && event.key === 'Enter') {
       onSave?.({ id: todo.id, title: inputRef.current.value });
@@ -112,6 +113,11 @@ const TodoItem = ({ todo, onToggleDone, onSave, onDelete, onChangeMode }) => {
       onChangeMode?.({ id: todo.id, isEdit: false });
     }
   };
+
+  const handleBlur = () => {
+    onChangeMode?.({ id: todo.id, isEdit: false });
+  };
+
   return (
     <StyledTaskItem
       className={clsx('', { done: todo.isDone, edit: todo.isEdit })}
@@ -136,6 +142,7 @@ const TodoItem = ({ todo, onToggleDone, onSave, onDelete, onChangeMode }) => {
           className="task-item-body-input"
           defaultValue={todo.title}
           onKeyDown={handleKeyDown}
+          onBlur={handleBlur}
         />
       </div>
       <div className="task-item-action">
