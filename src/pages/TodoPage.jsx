@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { checkPermission } from 'api/auth';
 import { getTodos, createTodos, patchTodo, deleteTodo } from 'api/todos';
 import { Footer, Header, TodoCollection, TodoInput } from 'components';
 
 const TodoPage = () => {
   const [inputValue, setInputValue] = useState('');
   const [todos, setTodos] = useState([]);
+  let navigate = useNavigate();
 
   const handleChange = (value) => {
     setInputValue(value);
@@ -160,6 +163,23 @@ const TodoPage = () => {
     };
     getTodosAsync();
   }, []);
+
+  useEffect(() => {
+    const checkTokenIsValid = async () => {
+      const authToken = localStorage.getItem('authToken');
+      if (!authToken) {
+        navigate('/login');
+        return;
+      }
+      const result = await checkPermission(authToken);
+
+      if (!result) {
+        navigate('/login');
+      }
+    };
+
+    checkTokenIsValid();
+  }, [navigate]);
 
   return (
     <div>
