@@ -45,7 +45,7 @@ export const checkPermission = async (authToken) => {
   try {
     const res = await axios.get(`${authURL}/test-token`, {
       headers: {
-        Authorization: 'Bearer' + authToken,
+        Authorization: 'Bearer ' + authToken,
       },
     });
 
