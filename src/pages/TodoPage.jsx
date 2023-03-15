@@ -111,7 +111,7 @@ const TodoPage = () => {
 
   const handleSave = async ({ id, title }) => {
     try {
-      const data = await patchTodo({
+      await patchTodo({
         id,
         title,
       });
@@ -135,7 +135,7 @@ const TodoPage = () => {
 
   const handleDelete = async (id) => {
     try {
-      const data = await deleteTodo(id);
+      await deleteTodo(id);
       setTodos((prevTodos) => {
         return prevTodos.filter((todo) => {
           return todo.id !== id;
