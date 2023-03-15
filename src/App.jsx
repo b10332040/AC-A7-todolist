@@ -7,8 +7,8 @@ const basename = process.env.PUBLIC_URL;
 
 function App() {
   return (
-    <div className="app" basename={basename}>
-      <BrowserRouter>
+    <div className="app">
+      <BrowserRouter basename={basename}>
         <AuthProvider>
           <Routes>
             <Route path="login" element={<LoginPage />} />
